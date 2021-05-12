@@ -22,8 +22,6 @@ while (True):
     img = cv2.imread('/home/kite/yejoon/mot_neural_solver/data/MOT17Det/test/MOT17-14/img1/%06d.jpg' % frame_num)
 
     while temp == annot[count][0]:
-        # if len(bbox_color) <= int(annot[count][1]) +1:
-        #     bbox_color.append(list(np.random.random(size=3) * 256))
         img = cv2.rectangle(img, (int(annot[count][2]),int(annot[count][3])), (int(annot[count][2] + annot[count][4]), int(annot[count][3] + annot[count][5])), bbox_color[int(annot[count][1])], 3)
         cv2.putText(img, str(annot[count][1]),  (int(annot[count][2] + annot[count][4]), int(annot[count][3] + annot[count][5])), cv2.FONT_HERSHEY_COMPLEX, 0.5, (0, 0, 0), 1)
         count += 1

@@ -117,7 +117,7 @@ if __name__ == "__main__":
                     # 사람인 경우
                     if predictions['instances'].pred_classes[i] == 0:
                         # 점수가 60이상인 경우
-                        if predictions['instances'].scores[i] > 0.6 :
+                        if predictions['instances'].scores[i] > 0.85:
                             temp_arr = []
                             temp_arr.append(frame_num)
                             temp_arr.append(-1)
@@ -126,6 +126,7 @@ if __name__ == "__main__":
                             temp_arr.append(temp_box[0][1])
                             temp_arr.append(temp_box[0][2])
                             temp_arr.append(temp_box[0][3])
+                            temp_arr.append(predictions['instances'].scores[i])
                             predictions_arr.append(temp_arr)
 
 
@@ -193,5 +194,6 @@ if __name__ == "__main__":
         df[3] = df[3].astype(float)
         df[4] = df[4].astype(float)
         df[5] = df[5].astype(float)
+        df[6] = df[6].astype(float)
         # 주소 바꾸기
-        df.to_csv('/home/kite/yejoon/detectron2/demo/output/demo2.txt', sep=',', index=False, header=False)
+        df.to_csv('/home/kite/yejoon/detectron2/demo/output/demo1_re.txt', sep=',', index=False, header=False)

@@ -6,20 +6,47 @@ I would like to make document as it will be useful later.
 
 
 ## 1. faceDetection_dlib
-I use this code to execute 3d face reconstruction. This detects people face using dlib.This find 5 landmarks and save to txt file.  
+
+### 1-1) face detection_test.py
+I want to check about dlib versus mtcnn. mtcnn won this time. mtcnn can detect side view of face.
+
+```
+[argument]
+--img_path : input image path 
+--save_path : output image path
+--model : dlib/mtcnn
+
+[how to test]
+* dlib
+$ python 01_faceDetection/face_detection.py
+
+* mtcnn
+$ python 01_faceDetection/face_detection.py --model mtcnn
+```
+
+<br>
+    
+This is the result of 'dlib vs mtcnn'
+  
+![result_of_dlib_mtcnn](./img/001-1_face_detection_test_result.png)
+
+
+### 1-2) face_detection_save_landmark.py
+I use this code to execute 3d face reconstruction. This detects people face using dlib or mtcnn.This find 5 landmarks and save to txt file.  
  
  
  
 ```
 [argument]
---img_path 
---save_path
---opt
+--img_path : input image path 
+--save_path : output image path
+--opt : train/ test
+--model : dlib/mtcnn
 ```
    
     
 ```
-$ python 001_faceDetection_dlib/face_detection.py
+$ python 001_faceDetection/face_detection_save_landmark.py
 ```
   
 ## 2. drawing_output
